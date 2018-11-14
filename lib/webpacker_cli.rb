@@ -69,7 +69,7 @@ module WebpackerCli
 
     def executable
       begin
-        Gem.bin_path("webpacker-cli", "webpacker-cli")
+        Gem.bin_path("webpacker_cli", "webpacker-cli")
       rescue
         File.expand_path('../bin/webpacker-cli', __dir__)
       end
