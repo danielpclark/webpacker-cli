@@ -19,7 +19,7 @@ This project makes
 
 Install it yourself as:
 
-    $ gem install webpacker-cli
+    $ gem install webpacker_cli
 
 ## Usage
 
