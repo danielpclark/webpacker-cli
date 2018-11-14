@@ -33,11 +33,6 @@ module WebpackerCli
         FileUtils.mkdir_p('bin')
         File.open('bin/rails', 'w') {|file| file.write(WebpackerCli::RailsTemplate.bin_rails) }
 
-        FileUtils.copy_file(
-          "#{File.expand_path('../bin', __dir__)}/webpacker-cli",
-          "#{dir}/bin/webpacker-cli"
-        )
-
         FileUtils.mkdir_p('config/webpack/loaders')
         File.open('config/application.rb', 'w') {|file| file.write(WebpackerCli::RailsTemplate.config_application) }
 
