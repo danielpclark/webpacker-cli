@@ -1,4 +1,4 @@
-[![Gem Version](https://badge.fury.io/rb/webpacker-cli.svg)](http://badge.fury.io/rb/webpacker-cli)
+[![Gem Version](https://badge.fury.io/rb/webpacker_cli.svg)](http://badge.fury.io/rb/webpacker_cli)
 [![Build Status](https://travis-ci.org/danielpclark/webpacker-cli.svg)](https://travis-ci.org/danielpclark/webpacker-cli)
 
 # WebpackerCli
