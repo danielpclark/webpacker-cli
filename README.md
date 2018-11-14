@@ -12,8 +12,8 @@ code, and make pre-processing other kinds of files such as Css, Sass, Images, Vu
 CoffeeScript, and other similar content as simple as a couple very minor edits.  Without Webpacker
 you would need to go through quite a bit of extra work to get Webpack to handle non JS items.
 
-This project makes
-
+This project makes asset packing and cache invalidation easy for any web framework by bringing
+Webpacker's tooling to the command line.
 
 ## Installation
 
