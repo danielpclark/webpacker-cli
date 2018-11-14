@@ -11,7 +11,11 @@ cache:
 before_install:
 - ruby --version
 - ruby -e 'require "pp"; pp RbConfig::CONFIG'
-- gem install bundler
+
+install:
+- nvm install node
+- node -v
+- npm i -g yarn
 
 script:
 - bundle install
