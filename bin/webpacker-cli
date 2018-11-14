@@ -1,0 +1,51 @@
+#!/usr/bin/env ruby
+
+$LOAD_PATH.unshift File.expand_path('../lib', __dir__)
+
+require 'tty/command'
+require 'webpacker_cli'
+
+def init_menu
+  <<~INITIAL_MENU
+To first initialize Webpacker in this project run the following command.
+
+    webpacker-cli init
+
+This will generate the minimal content to use webpacker.
+
+Dependencies:
+ * Ruby 2.2+
+ * Node.js 6.14.0+
+ * Yarn 1.x+
+  INITIAL_MENU
+end
+
+# For menu creation
+def rake_webpacker
+  TTY::Command.
+    new(printer: :null).
+    run!('rake webpacker')
+end
+
+def usage
+  result = rake_webpacker
+  if result.failure?
+    puts init_menu
+  else
+    puts result.out.gsub(/webpacker:/, "webpacker-cli ")
+  end
+end
+
+case ARGV[0]
+when /^(?:--help|-h)$/ then
+  usage
+when /^init$/
+  puts "INITIALIZING WEBPACKER…"
+  WebpackerCli.init()
+when /^[a-z:]+$/
+  TTY::Command.
+    new(color: false, uuid: false).
+    run("rake webpacker:#{ARGV.join(' ')}")
+else
+  usage
+end

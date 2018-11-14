@@ -1,0 +1,23 @@
+language: ruby
+
+os:
+- linux
+- osx
+- windows
+
+cache:
+  bundler: true
+
+before_install:
+- ruby --version
+- ruby -e 'require "pp"; pp RbConfig::CONFIG'
+- rustc -Vv
+
+script:
+- rake test
+
+env:
+  matrix:
+    - BUILD_RUBY_VERSION: 2.3.8
+    - BUILD_RUBY_VERSION: 2.4.5
+    - BUILD_RUBY_VERSION: 2.5.3
