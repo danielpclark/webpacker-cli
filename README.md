@@ -38,7 +38,7 @@ From here you have your configuration files for Webpack/Webpacker in the `config
 
 To compile your assets you may now run:
 
-    $ rake webpacker:compile
+    $ webpacker-cli compile
 
 To add support for another file type you can add a file to the `config/webpack/loaders`
 directory.  Then load it from `config/webpack/environment.js` and lastly add the file extension
