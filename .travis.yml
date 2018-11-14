@@ -13,7 +13,8 @@ before_install:
 - ruby -e 'require "pp"; pp RbConfig::CONFIG'
 
 script:
-- rake test
+- bundle install
+- bundle exec rake test
 
 env:
   matrix:
