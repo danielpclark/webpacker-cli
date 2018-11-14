@@ -11,6 +11,7 @@ cache:
 before_install:
 - ruby --version
 - ruby -e 'require "pp"; pp RbConfig::CONFIG'
+- gem install bundler
 
 script:
 - bundle install
