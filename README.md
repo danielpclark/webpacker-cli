@@ -13,7 +13,8 @@ CoffeeScript, and other similar content as simple as a couple very minor edits. 
 you would need to go through quite a bit of extra work to get Webpack to handle non JS items.
 
 This project makes asset packing and cache invalidation easy for any web framework by bringing
-Webpacker's tooling to the command line.
+Webpacker's tooling to the command line.  This cli tool is not meant to be used in a Rails project
+_(at least not until it's designed to not overwrite a few files that exist in Rails)_.
 
 ## Installation
 
