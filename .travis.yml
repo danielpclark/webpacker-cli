@@ -1,4 +1,8 @@
 language: ruby
+rvm:
+- 2.3.8
+- 2.4.5
+- 2.5.3
 
 os:
 - linux
@@ -24,9 +28,3 @@ script:
 matrix:
   allow_failures:
     os: windows
-
-env:
-  matrix:
-    - BUILD_RUBY_VERSION: 2.3.8
-    - BUILD_RUBY_VERSION: 2.4.5
-    - BUILD_RUBY_VERSION: 2.5.3
