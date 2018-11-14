@@ -23,6 +23,12 @@ Install it yourself as:
 
 ## Usage
 
+General help is found with
+
+    $ webpacker-cli --help
+
+The help menu will change after initialization within the project directory.
+
 And get started using it in your target project with:
 
     $ webpacker-cli init
@@ -40,11 +46,6 @@ to the `config/webpacker.yml` under `default.extensions`.  Be sure to add the JS
 a command like `yarn add`.
 
 > Server Tip: It is recommended to compile your assets upon deploy rather than per web request.
-
-## Future Plans
-
-WebpackerCli plans to become the defacto command to be used for each Webpacker related task so
-you won't be needing to type rake commands.
 
 ## Contributing
 
