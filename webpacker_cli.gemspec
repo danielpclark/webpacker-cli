@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
 
   spec.summary       = %q{Bringing Webpacker to any framework.}
   spec.description   = %q{Bringing the impressive work of the Rails' Webpacker project to be available for other frameworks.}
-  spec.license       = 'lgpl-3.0'
+  spec.license       = 'LGPL-3.0'
 
   # Specify which files should be added to the gem when it is released.
   # The `git ls-files -z` loads the files in the RubyGem that have been added into git.

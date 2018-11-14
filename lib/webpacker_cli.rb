@@ -22,7 +22,7 @@ module WebpackerCli
   class << self
     def init(**opts)
       dir = opts.fetch(:dir) { Dir.pwd }
-      test = opts.fetch(:test) { !!ENV['WEBPACKER_CLI']['TEST'] }
+      test = opts.fetch(:test) { !!ENV['WEBPACKER_CLI'].to_s['TEST'] }
 
       Dir.chdir(dir) do
         File.open('Gemfile', 'w') {|file|

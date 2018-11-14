@@ -6,7 +6,11 @@ module WebpackerCli
 git_source(:github) { |repo| "https://github.com/\#{repo}.git" }
 
 gem 'rake', '>= 11'
-gem 'webpacker-cli', '0.9.0'#{if test; ", path: '#{File.expand_path('../', __dir__)}'" end}
+gem 'webpacker-cli', '0.9.0'#{
+if test || !Gem.latest_version_for('webpacker_cli')
+  ", path: '#{File.expand_path('../', __dir__)}'"
+end
+}
 $ + gemspec_deps
       end
 
