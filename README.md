@@ -47,6 +47,18 @@ a command like `yarn add`.
 
 > Server Tip: It is recommended to compile your assets upon deploy rather than per web request.
 
+Once your assets are compiled for deployment you will need to have your web application route
+the assets by the file stored in `public/packs/manifest.json` which will look similar to:
+
+    {
+      "application.js": "/packs/application-9578bdd78b657fa4358f.js",
+      "application.js.map": "/packs/application-9578bdd78b657fa4358f.js.map"
+    }
+
+This way Webpacker handles cache invalidation for you whenever you make changes to your assets.
+So the `manifest.json` is the key-value pair of data used to be substitued in your web page views
+for the `src` references.
+
 ## Contributing
 
 Bug reports and pull requests are welcome on GitHub at https://github.com/danielpclark/webpacker-cli
