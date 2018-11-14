@@ -5,6 +5,8 @@ class WebpackerCliTest < Minitest::Test
   def setup
     @dir = Dir.mktmpdir
     Dir.chdir(@dir)
+    TTY::Command.new(color: false, uuid: false).
+      run("gem install bundler rake")
   end
 
   def test_files_are_created
