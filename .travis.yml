@@ -21,6 +21,10 @@ script:
 - bundle install
 - bundle exec rake test
 
+matrix:
+  allow_failures:
+    os: windows
+
 env:
   matrix:
     - BUILD_RUBY_VERSION: 2.3.8
