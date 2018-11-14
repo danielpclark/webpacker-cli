@@ -11,7 +11,6 @@ cache:
 before_install:
 - ruby --version
 - ruby -e 'require "pp"; pp RbConfig::CONFIG'
-- rustc -Vv
 
 script:
 - rake test
