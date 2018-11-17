@@ -60,6 +60,10 @@ This way Webpacker handles cache invalidation for you whenever you make changes 
 So the `manifest.json` is the key-value pair of data used to be substitued in your web page views
 for the `src` references.
 
+## Example Integration
+
+For a good example of using this tool for integrating with your own language see [webpacker-rs](https://github.com/danielpclark/webpacker-rs).  This library uses this tool to add Webpacker as part of the default build process of web deployment.  In essence the user themselves is responsible for running `webpacker-cli init` and then **webpacker-rs** has two methods for deployment which validate dependencies on the server and then compile the assets.  After deployment then **webpacker-rs** also provides a method for looking up the file mappings from the `manifest.json` file and provides a convenience helper method for dealing with the path routing.
+
 ## Contributing
 
 Bug reports and pull requests are welcome on GitHub at https://github.com/danielpclark/webpacker-cli
