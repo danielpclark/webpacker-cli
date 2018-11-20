@@ -22,6 +22,8 @@ Install it yourself as:
 
     $ gem install webpacker_cli
 
+_Note: If you have trouble compiling the Nokogiri dependency on Linux try installing the following packages: `build-essential ruby-dev libxml2-dev`_
+
 ## Usage
 
 General help is found with
