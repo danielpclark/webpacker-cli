@@ -39,11 +39,21 @@ require 'rails/commands'$
       end
 
       def gemspec_deps
-        $LOAD_PATH << File.expand_path('../', __dir__)
-        specs = eval File.read(File.expand_path("../../webpacker_cli.gemspec", __dir__))
-        specs.runtime_dependencies.
+        gemspec.runtime_dependencies.
           map {|i| "gem '#{i.name}', '#{i.requirement.requirements.join(' ')}'"}.
           join("\n")
+      end
+
+      def gemspec
+        begin
+          Gem::Specification.find_by_name "webpacker_cli"
+        rescue
+          local_spec = File.expand_path("../../webpacker_cli.gemspec", __dir__)
+
+          raise "Gemspec not found for 'webpacker_cli'!" unless File.exist? local_spec
+
+          eval File.read(local_spec)
+        end
       end
     end
   end
