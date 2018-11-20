@@ -8,13 +8,15 @@ other than Rails**.  This is done by mocking the minimal amount of Rails for the
 Rake commands to be able to run.
 
 Webpacker itself takes Webpack, which has a primary focus for pre-processing JavaScript related
-code, and make pre-processing other kinds of files such as Css, Sass, Images, Vue, React,
+code, and make pre-processing other kinds of files such as CSS, SASS, Images, VueJS, React,
 CoffeeScript, and other similar content as simple as a couple very minor edits.  Without Webpacker
 you would need to go through quite a bit of extra work to get Webpack to handle non JS items.
 
 This project makes asset packing and cache invalidation easy for any web framework by bringing
 Webpacker's tooling to the command line.  This cli tool is not meant to be used in a Rails project
 _(at least not until it's designed to not overwrite a few files that exist in Rails)_.
+
+This project has the same dependencies/prerequisites as [Webpacker](https://github.com/rails/webpacker#prerequisites).
 
 ## Installation
 
