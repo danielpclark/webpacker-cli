@@ -15,6 +15,7 @@ module WebpackerCli
     config/webpack/loaders
     config/webpack/production.js
     config/webpack/test.js
+    package.json
     Gemfile
     Rakefile
   ]
@@ -32,6 +33,8 @@ module WebpackerCli
 
         FileUtils.mkdir_p('bin')
         File.open('bin/rails', 'w') {|file| file.write(WebpackerCli::RailsTemplate.bin_rails) }
+
+        File.open('package.json', 'w') {|file| file.write(WebpackerCli::RailsTemplate.package_json) }
 
         FileUtils.mkdir_p('config/webpack/loaders')
         File.open('config/application.rb', 'w') {|file| file.write(WebpackerCli::RailsTemplate.config_application) }

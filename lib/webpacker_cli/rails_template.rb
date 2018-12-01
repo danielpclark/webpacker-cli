@@ -32,6 +32,19 @@ module TestApp
 end$
       end
 
+      def package_json
+        %q${
+  "name": "application",
+  "private": true,
+  "dependencies": {
+    "@rails/webpacker": "3.5"
+  },
+  "devDependencies": {
+    "webpack-dev-server": "2.11.2"
+  }
+}$
+      end
+
       def bin_rails
         %q$#!/usr/bin/env ruby
 APP_PATH = File.expand_path('../config/application', __dir__)
