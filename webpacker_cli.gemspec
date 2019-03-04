@@ -27,7 +27,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'minitest', '~> 5.11'
   spec.add_development_dependency 'minitest-reporters', '~> 1.1'
   spec.add_development_dependency 'color_pound_spec_reporter', '~> 0.0.6'
-  spec.add_dependency 'bundler', '~> 1.16'
+  spec.add_dependency 'bundler', '>= 1.16'
   spec.add_dependency 'tty-command', '~> 0.8'
-  spec.add_dependency 'webpacker', '~> 4.0.0.pre.3'
+  spec.add_dependency 'webpacker', '~> 4.0.0'
 end
