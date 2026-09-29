@@ -1,0 +1,30 @@
+# Configuration for webpacker-cli.  Same layout and key names as Rails' Webpacker.
+default: &default
+  source_path: app/javascript
+  source_entry_path: packs
+  public_root_path: public
+  public_output_path: packs
+  cache_path: tmp/cache/webpacker
+
+  # Files with these extensions are resolved when imported without an extension.
+  extensions:
+    - .js
+    - .mjs
+    - .json
+    - .css
+    - .png
+    - .jpg
+    - .jpeg
+    - .gif
+    - .svg
+    - .woff
+    - .woff2
+
+development:
+  <<: *default
+
+test:
+  <<: *default
+
+production:
+  <<: *default
