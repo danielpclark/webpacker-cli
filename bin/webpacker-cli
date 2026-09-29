@@ -2,50 +2,56 @@
 
 $LOAD_PATH.unshift File.expand_path('../lib', __dir__)
 
-require 'tty/command'
 require 'webpacker_cli'
 
-def init_menu
-  <<~INITIAL_MENU
-To first initialize Webpacker in this project run the following command.
+USAGE = <<~TEXT
+  webpacker-cli #{WebpackerCli::VERSION}
 
-    webpacker-cli init
+  Usage: webpacker-cli <command> [options]
 
-This will generate the minimal content to use webpacker.
+  Commands:
+    init       Create config, entry pack and package.json, then install Node packages
+                 --force         overwrite existing files
+                 --skip-install  don't install Node packages
+    compile    Compile packs into the public output directory (writes manifest.json)
+    watch      Compile and recompile on changes
+    clobber    Remove compiled packs and the Webpack cache
+    check      Verify Node, package manager and installed packages
+    info       Show tool versions
+    version    Show the webpacker-cli version
 
-Dependencies:
- * Ruby 2.2+
- * Node.js 6.14.0+
- * Yarn 1.x+
-  INITIAL_MENU
-end
+  The environment is taken from WEBPACKER_ENV, NODE_ENV or RAILS_ENV (default: development).
+  Run `webpacker-cli init` first in your project directory.
+TEXT
 
-# For menu creation
-def rake_webpacker
-  TTY::Command.
-    new(printer: :null).
-    run!('rake webpacker')
-end
+command, *args = ARGV
 
-def usage
-  result = rake_webpacker
-  if result.failure?
-    puts init_menu
+begin
+  case command
+  when 'init'
+    puts 'INITIALIZING WEBPACKER…'
+    WebpackerCli.init(force: args.include?('--force'), install: !args.include?('--skip-install'))
+  when 'compile'
+    WebpackerCli.compile
+  when 'watch'
+    WebpackerCli.watch
+  when 'clobber'
+    WebpackerCli.clobber
+  when 'check'
+    problems = WebpackerCli.check
+    puts(problems.empty? ? 'Everything looks good.' : problems)
+    exit(problems.empty? ? 0 : 1)
+  when 'info'
+    WebpackerCli.info.each { |k, v| puts "#{k}: #{v}" }
+  when 'version', '--version', '-v'
+    puts WebpackerCli::VERSION
+  when nil, 'help', '--help', '-h'
+    puts USAGE
   else
-    puts result.out.gsub(/webpacker:/, "webpacker-cli ")
+    warn "Unknown command: #{command}\n\n#{USAGE}"
+    exit 1
   end
-end
-
-case ARGV[0]
-when /^(?:--help|-h)$/ then
-  usage
-when /^init$/
-  puts "INITIALIZING WEBPACKER…"
-  WebpackerCli.init()
-when /^[a-z:]+$/
-  TTY::Command.
-    new(color: false, uuid: false).
-    run("rake webpacker:#{ARGV.join(' ')}")
-else
-  usage
+rescue WebpackerCli::Error => e
+  warn e.message
+  exit 1
 end
